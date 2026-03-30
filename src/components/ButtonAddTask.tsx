@@ -1,10 +1,13 @@
 import React from "react";
-import "./ButtonAddTask.css"
+import "./ButtonAddTask.css";
+import type { ButtonTaskProps } from "../types/ButtonTaskType";
 
-function ButtonAddTask() {
+function ButtonAddTask({ onClick }: ButtonTaskProps) {
   return (
     <>
-        <button className="buttonAdd">Add</button>
+      <button className="buttonAdd" onClick={onClick}>
+        Add
+      </button>
     </>
   );
 }

@@ -1,10 +1,15 @@
 import React from "react";
-import "./InputTask.css"
+import "./InputTask.css";
+import type { InputTaskType } from "../types/InputTaskType";
 
-function InputTask() {
+function InputTask({ value, onChange }: InputTaskType) {
   return (
     <>
-      <input className="InputTask"/>
+      <input
+        className="InputTask"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
     </>
   );
 }
