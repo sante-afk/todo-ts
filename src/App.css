@@ -3,6 +3,17 @@
   padding: 0;
 }
 
+li {
+  list-style-type: none;
+}
+
+.task {
+}
+
+.deleteTask {
+  margin: 15px;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -188,9 +199,31 @@
   }
 }
 
-.taskContainter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.taskContainer {
+  display: grid;
+  grid-template-rows: auto 1fr; 
   height: 100vh;
+  justify-items: center; 
+  align-items: start; 
+}
+
+.taskHeader {
+  display: flex;
+  gap: 10px; 
+  padding: 20px;
+  align-items: center; 
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 400px; 
+  text-align: center;
+  overflow-y: auto;
+  max-height: 100%; 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

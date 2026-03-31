@@ -3,6 +3,7 @@ import "./InputTask.css";
 import type { InputTaskType } from "../types/InputTaskType";
 
 function InputTask({ value, onChange }: InputTaskType) {
+
   return (
     <>
       <input

@@ -9,25 +9,41 @@ function App() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
   const handleAddTask = () => {
-    alert("Task success add " + taskText);
-
     const newTask: TaskType = {
       id: tasks.length + 1,
       text: taskText,
       complited: false,
     };
 
-    setTasks([...tasks, newTask]);
+    if (!newTask.text) {
+      alert("Enter to task");
+    }
+
+    if (newTask.text) {
+      alert("Task success add " + taskText);
+      setTasks([...tasks, newTask]);
+    }
+
   };
+
+  const handleDelTask = (taskId: number) => {
+    setTasks(tasks => tasks.filter(task => task.id !== taskId));
+  }
 
   return (
     <>
       <div className="taskContainter">
-        <InputTask value={taskText} onChange={setTaskText} />
-        <ButtonAddTask onClick={handleAddTask} />
-        <ul>
+        <div className="taskHeader">
+          <InputTask value={taskText} onChange={setTaskText} />
+          <ButtonAddTask onClick={handleAddTask} />
+        </div>
+        <ul className="taskList">
           {tasks.map((task) => {
-            return <li key={task.id}>{task.text}</li>;
+            return (
+              <li key={task.id} className="task">{task.text}
+                <button className="deleteTask" onClick={() => {handleDelTask(task.id)}}>X</button>
+              </li>
+            );
           })}
         </ul>
       </div>
