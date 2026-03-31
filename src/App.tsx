@@ -16,7 +16,7 @@ function App() {
 
   const handleAddTask = () => {
     const newTask: TaskType = {
-      id: tasks.length + 1,
+      id: Date.now(),
       text: taskText,
       complited: false,
     };
