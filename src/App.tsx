@@ -1,7 +1,7 @@
 import "./App.css";
 import InputTask from "./components/InputTask";
 import ButtonAddTask from "./components/ButtonAddTask";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import type { TaskType } from "./types/TaskType";
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
     return [];
   });
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleAddTask = () => {
     const newTask: TaskType = {
       id: Date.now(),
@@ -22,12 +24,14 @@ function App() {
     };
 
     if (!newTask.text) {
-      alert("Enter to task");
+      return;
     }
 
     if (newTask.text) {
-      alert("Task success add " + taskText);
+      // alert("Task success add " + taskText);
       setTasks([...tasks, newTask]);
+      setTaskText("");
+      inputRef.current?.focus();
     }
 
   };
@@ -44,7 +48,7 @@ function App() {
     <>
       <div className="taskContainter">
         <div className="taskHeader">
-          <InputTask value={taskText} onChange={setTaskText} />
+          <InputTask value={taskText} onChange={setTaskText} ref={inputRef} />
           <ButtonAddTask onClick={handleAddTask} />
         </div>
         <ul className="taskList">
