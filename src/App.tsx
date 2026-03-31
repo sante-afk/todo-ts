@@ -54,8 +54,11 @@ function App() {
         <ul className="taskList">
           {tasks.map((task) => {
             return (
-              <li key={task.id} className="task">{task.text}
-                <button className="deleteTask" onClick={() => { handleDelTask(task.id) }}>X</button>
+              <li className="task">
+                <span className="taskText">{task.text}</span>
+                <button className="deleteTask" onClick={() => handleDelTask(task.id)}>
+                  X
+                </button>
               </li>
             );
           })}
