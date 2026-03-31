@@ -1,4 +1,3 @@
-import React from "react";
 import "./ButtonAddTask.css";
 import type { ButtonTaskProps } from "../types/ButtonTaskType";
 

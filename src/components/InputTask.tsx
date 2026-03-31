@@ -1,4 +1,3 @@
-import React from "react";
 import "./InputTask.css";
 import type { InputTaskType } from "../types/InputTaskType";
 
